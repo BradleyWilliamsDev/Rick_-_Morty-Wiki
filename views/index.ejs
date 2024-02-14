@@ -1,0 +1,47 @@
+<%- include('partials/navbar.ejs') %> <% if (locals.data) { %>
+<div class="page">
+  <ul class="list-style">
+    <% for (let i = 0; i < data.results.length; i++) { %>
+    <div class="character-card">
+      <li>
+        <img
+          src="<%= data.results[i].image %>"
+          alt="Image of <%= data.results[i].name %>"
+        />
+        <div class="character-content">
+          <a class="character-name" href="/characters/<%= data.results[i].id %>"
+            ><h4 class="heading character-name">
+              <%= data.results[i].name %>
+            </h4></a
+          >
+          <p>status: <%= data.results[i].status %></p>
+          <p class="character-species">
+            species: <%= data.results[i].species %>
+          </p>
+          <a
+            class="character-read"
+            href="/characters/<%= data.results[i].id %>"
+          >
+            read more
+          </a>
+        </div>
+      </li>
+    </div>
+    <% } %>
+  </ul>
+  <form class="character-pages" method="post">
+    <input
+      class="character-pages-btn"
+      type="submit"
+      value="Prev"
+      formaction="/prev-page"
+    />
+    <input
+      class="character-pages-btn"
+      type="submit"
+      value="next"
+      formaction="/next-page"
+    />
+  </form>
+</div>
+<% } %>

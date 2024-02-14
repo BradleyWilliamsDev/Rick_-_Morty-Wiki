@@ -1,0 +1,24 @@
+<%- include("partials/navbar.ejs") %> <% if(locals.data){ %>
+<div class="page-content">
+  <div class="page-content-holder">
+    <img src="<%= data.image %>" alt="image of <%= data.name %>" />
+    <div class="page-content-data">
+    <h1 class="heading"><%= data.name %></h1>
+    <span> id: <%= data.id %> </span>
+    <p>status: <%= data.status %></p>
+    <p>species: <%= data.species %></p>
+    <% if(data.type != ''){ %>
+    <p>type: <%= data.type %></p>
+    <% } %>
+    <p>gender: <%=data.gender%></p>
+    <h2 class="heading">origin:</h2>
+    <p>planet of origin: <%= data.origin.name %></p>
+    <h2 class="heading">Location:</h2>
+    <p>location: <%= data.location.name %></p>
+  </div>
+  </div>
+</div>
+<a href="/">
+  <button class="character-pages-btn back-btn">Back</button>
+</a>
+<% } %>
